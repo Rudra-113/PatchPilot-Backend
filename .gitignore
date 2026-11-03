@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# PatchPilot generated/runtime data
+uploads/
+scans/
+scan_cache/
+patchpilot_cache/
+validation_runs/
+sandbox_runs/
+
+# Patch backups
+*.patchpilot-backup
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# Local tooling
+.rocketride/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs/temp
+*.log
+*.tmp
+*.temp
