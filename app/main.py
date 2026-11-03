@@ -1,5 +1,3 @@
-import os
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -14,22 +12,31 @@ app = FastAPI(
     version="0.1.0",
 )
 
-frontend_url = os.getenv(
-    "FRONTEND_URL",
-    "http://localhost:5173",
-)
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[frontend_url],
+    allow_origins=[
+        "https://extraordinary-crepe-c416fb.netlify.app",
+        "http://localhost:5173",
+    ],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-app.include_router(health_router, prefix="/api/v1")
-app.include_router(repositories_router, prefix="/api/v1")
-app.include_router(scans_router, prefix="/api/v1")
+app.include_router(
+    health_router,
+    prefix="/api/v1",
+)
+
+app.include_router(
+    repositories_router,
+    prefix="/api/v1",
+)
+
+app.include_router(
+    scans_router,
+    prefix="/api/v1",
+)
 
 
 @app.get("/")
